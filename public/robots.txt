@@ -1,0 +1,6 @@
+# robots.txt for Kreedum Construction
+
+User-agent: *
+Allow: /
+
+Sitemap: https://construction.kreedum.com/sitemap.xml

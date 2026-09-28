@@ -76,4 +76,7 @@ If your Construction subdomain ends up being something other than
 - `index.html` — canonical link + `og:*` URLs + JSON-LD schema
 - `scripts/generate-route-meta.mjs` — `SITE_URL`
 
+
+ "chore: migrate construction repo to Kreedum GitHub"
+
 ## Project structure

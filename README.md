@@ -77,6 +77,6 @@ If your Construction subdomain ends up being something other than
 - `scripts/generate-route-meta.mjs` — `SITE_URL`
 
 
- "chore: migrate construction repo to Kreedum GitHub"
+ "chore2: migrate construction repo to Kreedum GitHub"
 
 ## Project structure

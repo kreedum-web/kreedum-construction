@@ -12,13 +12,12 @@ import IntroSequence from "../components/construction/IntroSequence";
 import StatsSection from "../components/construction/StatsSection";
 import VerticalCard from "../components/construction/VerticalCard";
 import ProjectGrid from "../components/construction/ProjectGrid";
+import ClientsSection from "../components/construction/ClientsSection";
 import CTASection from "../components/construction/CTASection";
 import Reveal from "../components/construction/Reveal";
 
 export default function ConstructionHomePage() {
-  // The site (nav + hero, video already playing) is mounted immediately;
-  // the intro is a fixed overlay on top of it, so the exit is a continuous
-  // slide-up reveal rather than a swap-in of unrendered content.
+  // Keep the site mounted behind the intro overlay for a continuous reveal.
   const [introDone, setIntroDone] = useState(false);
 
   return (
@@ -90,6 +89,8 @@ export default function ConstructionHomePage() {
           <ProjectGrid limit={6} />
         </div>
       </section>
+
+      <ClientsSection />
 
       <CTASection
         eyebrow="Let's get started"

@@ -40,6 +40,9 @@ export default function ConstructionHomePage() {
 
       <StatsSection />
 
+      <ClientsSection />
+
+
       {/* Three verticals */}
       <section className="py-16 md:py-24 lg:py-28" style={{ backgroundColor: CONSTRUCTION_COLORS.white }}>
         <div className="max-w-6xl mx-auto px-5 sm:px-6">
@@ -90,7 +93,6 @@ export default function ConstructionHomePage() {
         </div>
       </section>
 
-      <ClientsSection />
 
       <CTASection
         eyebrow="Let's get started"

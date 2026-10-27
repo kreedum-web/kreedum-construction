@@ -1,12 +1,9 @@
+
 import { useEffect, useRef, useState } from "react";
 import { CONSTRUCTION_COLORS } from "../../config/theme";
 import Reveal from "./Reveal";
 import constructionClients from "../../data/constructionClients";
 
-/**
- * Scrolling client-logo strip for the construction homepage.
- * The list is duplicated for a seamless loop and pauses on hover/touch.
- */
 export default function ClientsSection() {
   const trackRef = useRef(null);
   const lastTimeRef = useRef(null);
@@ -16,7 +13,10 @@ export default function ClientsSection() {
     const track = trackRef.current;
     if (!track) return;
 
-    const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    const reduceMotion = window.matchMedia?.(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
     if (reduceMotion) return;
 
     let frameId;
@@ -27,7 +27,6 @@ export default function ClientsSection() {
         const delta = time - lastTimeRef.current;
         track.scrollLeft += (speed * delta) / 1000;
 
-        // Reset at the halfway point because the logo list is duplicated.
         if (track.scrollLeft >= track.scrollWidth / 2) {
           track.scrollLeft -= track.scrollWidth / 2;
         }
@@ -38,6 +37,7 @@ export default function ClientsSection() {
     };
 
     frameId = requestAnimationFrame(animate);
+
     return () => {
       cancelAnimationFrame(frameId);
       lastTimeRef.current = null;
@@ -49,38 +49,39 @@ export default function ClientsSection() {
   return (
     <section
       aria-labelledby="construction-clients-heading"
-      className="overflow-hidden border-y py-16 md:py-20"
+      className="overflow-hidden border-y py-7 sm:py-11 md:py-16"
       style={{
-  backgroundColor: CONSTRUCTION_COLORS.black,
-  borderColor: "#343434",
-}}
+        backgroundColor: CONSTRUCTION_COLORS.black,
+        borderColor: "#343434",
+      }}
     >
-      <div className="mx-auto max-w-6xl px-5 sm:px-6">
-        <Reveal className="mb-8 max-w-2xl md:mb-10">
-          <div className="mb-3 flex items-center gap-2">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <Reveal className="mb-5 max-w-2xl sm:mb-8 md:mb-10">
+          <div className="mb-2 flex items-center gap-2 sm:mb-3">
             <span
-              className="h-2 w-2"
+              className="h-1.5 w-1.5 sm:h-2 sm:w-2"
               style={{ backgroundColor: CONSTRUCTION_COLORS.orange }}
               aria-hidden="true"
             />
             <span
-              className="kc-plate"
-              style={{ color: CONSTRUCTION_COLORS.orangeDark }}
+              className="kc-plate text-[10px] sm:text-xs"
+              style={{ color: CONSTRUCTION_COLORS.orange }}
             >
               Trusted Relationships
             </span>
           </div>
 
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div className="flex flex-col gap-2 sm:gap-3 md:flex-row md:items-end md:justify-between md:gap-6">
             <h2
               id="construction-clients-heading"
-              className="font-display text-2xl font-bold sm:text-3xl md:text-4xl"
+              className="font-display text-xl font-bold leading-tight sm:text-2xl md:text-4xl"
               style={{ color: CONSTRUCTION_COLORS.white }}
             >
               Trusted by our clients.
             </h2>
+
             <p
-              className="max-w-md text-sm leading-6 md:text-base"
+              className="max-w-md text-xs leading-5 sm:text-sm sm:leading-6 md:text-base"
               style={{ color: "#B7B2AA" }}
             >
               Building lasting partnerships with institutions and organisations
@@ -92,7 +93,7 @@ export default function ClientsSection() {
 
       <div
         ref={trackRef}
-        className="kc-clients-track flex items-center gap-4 overflow-x-auto px-5 pb-2 sm:gap-5 sm:px-6"
+        className="kc-clients-track flex items-center gap-3 overflow-x-auto px-4 pb-1 sm:gap-5 sm:px-6 sm:pb-2"
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
         onFocusCapture={() => setIsPaused(true)}
@@ -105,7 +106,7 @@ export default function ClientsSection() {
         {clients.map((client, index) => (
           <div
             key={`${client.name}-${index}`}
-            className="flex h-24 w-36 shrink-0 items-center justify-center rounded-sm border px-5 py-4 transition duration-300 hover:-translate-y-1 hover:border-[#E86F00] sm:h-28 sm:w-44"
+            className="flex h-[68px] w-[108px] shrink-0 items-center justify-center rounded-sm border px-3 py-3 transition duration-300 hover:-translate-y-1 hover:border-[#E86F00] sm:h-24 sm:w-36 sm:px-5 sm:py-4 md:h-28 md:w-44"
             style={{
               backgroundColor: CONSTRUCTION_COLORS.white,
               borderColor: "#343434",
@@ -129,9 +130,11 @@ export default function ClientsSection() {
           scrollbar-width: none;
           -ms-overflow-style: none;
         }
+
         .kc-clients-track::-webkit-scrollbar {
           display: none;
         }
+
         @media (prefers-reduced-motion: reduce) {
           .kc-clients-track {
             scroll-behavior: auto;

@@ -92,8 +92,10 @@ export default function ConstructionHero({
 
       <div
         className={`relative w-full max-w-4xl mx-auto px-6 text-center ${
-          tall ? "pt-32 pb-28 md:pt-16 md:pb-16" : "pt-24 pb-20 md:pt-28 md:pb-24"
-        }`}
+tall
+  ? "pt-24 pb-16 sm:pt-28 sm:pb-20 md:pt-16 md:pb-16"
+  : "pt-20 pb-14 md:pt-28 md:pb-24"      
+  }`}
       >
         {eyebrow && (
           <div className={`${stageClass()} flex items-center justify-center gap-2 mb-6`} style={stageStyle(0)}>

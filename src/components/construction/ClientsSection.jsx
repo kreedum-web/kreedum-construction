@@ -51,9 +51,9 @@ export default function ClientsSection() {
       aria-labelledby="construction-clients-heading"
       className="overflow-hidden border-y py-16 md:py-20"
       style={{
-        backgroundColor: CONSTRUCTION_COLORS.paper,
-        borderColor: CONSTRUCTION_COLORS.concrete,
-      }}
+  backgroundColor: CONSTRUCTION_COLORS.black,
+  borderColor: "#343434",
+}}
     >
       <div className="mx-auto max-w-6xl px-5 sm:px-6">
         <Reveal className="mb-8 max-w-2xl md:mb-10">
@@ -75,13 +75,13 @@ export default function ClientsSection() {
             <h2
               id="construction-clients-heading"
               className="font-display text-2xl font-bold sm:text-3xl md:text-4xl"
-              style={{ color: CONSTRUCTION_COLORS.ink }}
+              style={{ color: CONSTRUCTION_COLORS.white }}
             >
               Trusted by our clients.
             </h2>
             <p
               className="max-w-md text-sm leading-6 md:text-base"
-              style={{ color: CONSTRUCTION_COLORS.steel }}
+              style={{ color: "#B7B2AA" }}
             >
               Building lasting partnerships with institutions and organisations
               across sports, education and public infrastructure.
@@ -105,10 +105,10 @@ export default function ClientsSection() {
         {clients.map((client, index) => (
           <div
             key={`${client.name}-${index}`}
-            className="flex h-24 w-36 shrink-0 items-center justify-center rounded-sm border px-5 py-4 transition duration-300 hover:-translate-y-1 hover:bg-white sm:h-28 sm:w-44"
+            className="flex h-24 w-36 shrink-0 items-center justify-center rounded-sm border px-5 py-4 transition duration-300 hover:-translate-y-1 hover:border-[#E86F00] sm:h-28 sm:w-44"
             style={{
               backgroundColor: CONSTRUCTION_COLORS.white,
-              borderColor: CONSTRUCTION_COLORS.concrete,
+              borderColor: "#343434",
             }}
           >
             <img

@@ -93,8 +93,8 @@ export default function ConstructionHero({
       <div
         className={`relative w-full max-w-4xl mx-auto px-6 text-center ${
 tall
-  ? "pt-24 pb-16 sm:pt-28 sm:pb-20 md:pt-16 md:pb-16"
-  : "pt-20 pb-14 md:pt-28 md:pb-24"      
+  ? "pt-20 pb-10 sm:pt-24 sm:pb-14 md:pt-16 md:pb-16"
+  : "pt-20 pb-14 md:pt-28 md:pb-24"
   }`}
       >
         {eyebrow && (
@@ -108,8 +108,10 @@ tall
 
         <h1
           className={`${stageClass()} font-display font-bold leading-[1.08] mb-5 ${
-            tall ? "text-4xl sm:text-5xl md:text-6xl" : "text-3xl md:text-5xl"
-          }`}
+tall
+  ? "text-3xl sm:text-5xl md:text-6xl mb-4 sm:mb-5"
+  : "text-3xl md:text-5xl"       
+   }`}
           style={{ ...stageStyle(120), color: CONSTRUCTION_COLORS.white, textShadow: "0 2px 24px rgba(0,0,0,0.5)" }}
         >
           {titleLines.map((line, i) => (
@@ -121,7 +123,7 @@ tall
 
         {subtitle && (
           <p
-            className={`${stageClass()} font-body text-base md:text-lg mb-9 max-w-xl mx-auto`}
+            className={`${stageClass()} font-body text-sm leading-6 sm:text-base md:text-lg mb-6 sm:mb-9 max-w-xl mx-auto`}
             style={{ ...stageStyle(220), color: "rgba(255,255,255,0.85)", textShadow: "0 1px 16px rgba(0,0,0,0.45)" }}
           >
             {subtitle}
@@ -133,7 +135,7 @@ tall
             {primaryCta && (
               <Link
                 to={primaryCta.to}
-                className="kc-plate kc-focus px-7 py-3.5 rounded-sm transition-transform hover:scale-105"
+                className="kc-plate kc-focus px-5 py-3 sm:px-7 sm:py-3.5 rounded-sm transition-transform hover:scale-105"
                 style={{ backgroundColor: CONSTRUCTION_COLORS.orange, color: CONSTRUCTION_COLORS.white }}
               >
                 {primaryCta.label}

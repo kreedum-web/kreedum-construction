@@ -93,7 +93,7 @@ export default function ConstructionHero({
       <div
         className={`relative w-full max-w-4xl mx-auto px-6 text-center ${
 tall
-  ? "pt-20 pb-10 sm:pt-24 sm:pb-14 md:pt-16 md:pb-16"
+  ? "pt-24 pb-14 sm:pt-28 sm:pb-18 md:pt-16 md:pb-16"
   : "pt-20 pb-14 md:pt-28 md:pb-24"
   }`}
       >
